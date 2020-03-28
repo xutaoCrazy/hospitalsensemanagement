@@ -32,7 +32,7 @@
 </template>
 <script>
 import { mapState, mapMutations } from "vuex";
-import { getUserCode } from "@/service/api/InstitutionInterface";
+// import { getUserCode } from "@/service/api/InstitutionInterface";
 export default {
   name: "search",
   props: { menuStatu: Object },
@@ -61,23 +61,23 @@ export default {
     ])
   },
   methods: {
-    logOut() {
-      this.$confirm("您确定要离开云健康吗？", "提示", {
-        confirmButtonText: "确定",
-        type: "warning",
-        showCancelButton: false,
-        showClose: false
-      }).then(() => {
-        getUserCode("cloudLogout", {
-          loginName: this.loginName,
-          jsessionids: this.jsessionids
-        }).then(msg => {
-          if (msg[0].result == "SUCCESS") {
-            window.location.href = this.centerurl;
-          }
-        });
-      });
-    }
+    // logOut() {
+    //   this.$confirm("您确定要离开云健康吗？", "提示", {
+    //     confirmButtonText: "确定",
+    //     type: "warning",
+    //     showCancelButton: false,
+    //     showClose: false
+    //   }).then(() => {
+    //     getUserCode("cloudLogout", {
+    //       loginName: this.loginName,
+    //       jsessionids: this.jsessionids
+    //     }).then(msg => {
+    //       if (msg[0].result == "SUCCESS") {
+    //         window.location.href = this.centerurl;
+    //       }
+    //     });
+    //   });
+    // }
   },
   mounted() {
     debugger;

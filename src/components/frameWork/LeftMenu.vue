@@ -3,7 +3,7 @@
     <div class="campany-logo">
       <i></i>
       <!-- <img src="../../assets/img/profile_small.jpg" /> -->
-      <span>医保系统</span>
+      <span>院感系统</span>
     </div>
     <div class="lef-menu">
       <ul class="first-level-menu">
@@ -36,15 +36,38 @@
                   class="glyphicon"
                   :class="{'el-icon-arrow-left':list.children.length>0&&list.fold,'el-icon-arrow-down':list.children.length>0&&!list.fold}"
                 ></i>
+
                 <el-collapse-transition>
                   <ul class="third-level-menu" v-show="!list.fold">
                     <li
                       v-for="thirdList in list.children"
                       :class="{'activeMenuIndex':tabsIndex.id==thirdList.id}"
                       :key="thirdList.id"
-                      v-text="thirdList.item"
                       @click.stop="selectTreeNode(3,thirdList)"
-                    ></li>
+                    >
+                      <span v-text="thirdList.item"></span>
+                      <i
+                        class="glyphicon"
+                        :class="{'el-icon-arrow-left':thirdList.children.length>0&&thirdList.fold,'el-icon-arrow-down':thirdList.children.length>0&&!thirdList.fold}"
+                      ></i>
+                      <el-collapse-transition>
+                        <ul class="fourth-level-menu" v-show="!thirdList.fold">
+                          <li
+                            v-for="thirdLisst in thirdList.children"
+                            :class="{'activeMenuIndex':tabsIndex.id==thirdLisst.id}"
+                            :key="thirdLisst.id"
+                            v-text="thirdLisst.item"
+                            @click.stop="selectTreeNode(4,thirdLisst)"
+                          >
+                            <span v-text="thirdLisst.item"></span>
+                            <i
+                              class="glyphicon"
+                              :class="{'el-icon-arrow-left':thirdLisst.children.length>0&&thirdLisst.fold,'el-icon-arrow-down':thirdLisst.children.length>0&&!thirdLisst.fold}"
+                            ></i>
+                          </li>
+                        </ul>
+                      </el-collapse-transition>
+                    </li>
                   </ul>
                 </el-collapse-transition>
               </li>
@@ -66,7 +89,7 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
-import { commonAjaxRequest } from "@/service/api/InstitutionInterface";
+// import { commonAjaxRequest } from "@/service/api/InstitutionInterface";
 export default {
   name: "LeftMenu",
   props: { menuStatu: Object },
@@ -85,7 +108,572 @@ export default {
         path: "/home",
         logo: "menu-item-logo"
       },
-      leftMenuData: []
+      leftMenuData: [
+        {
+          index: 1,
+          id: 1,
+          item: "首页",
+          fold: false,
+          noChild: true,
+          path: "/home",
+          logo: "menu-item-logo"
+        },
+        {
+          id: "3401",
+          parentId: null,
+          obj: null,
+          abbrp: null,
+          abbrw: null,
+          intenames: null,
+          nocheck: null,
+          item: "业务平台",
+          index: "1",
+          path: null,
+          logo: "icon-serverwarn",
+          fold: true,
+          noChild: null,
+          text: "业务平台",
+          iconCls: "icon-serverwarn",
+          checked: true,
+          description: null,
+          attributes: {},
+          children: [
+            {
+              id: "3414",
+              parentId: null,
+              obj: null,
+              abbrp: null,
+              abbrw: null,
+              intenames: "1",
+              nocheck: null,
+              item: "爆发预警",
+              index: "3",
+              path: "/home/hospitaloutbreakwarning",
+              logo: "icon-appliction-key",
+              fold: false,
+              noChild: true,
+              text: "爆发预警",
+              iconCls: "icon-appliction-key",
+              checked: true,
+              description: null,
+              attributes: {},
+              children: [],
+              useChildren: null,
+              state: "open",
+              name: "insu_mthz",
+              bck03b: null,
+              nodes: null,
+              leaf: true,
+              validTree: true
+            },
+            {
+              id: "3415",
+              parentId: null,
+              obj: null,
+              abbrp: null,
+              abbrw: null,
+              intenames: "1",
+              nocheck: null,
+              item: "目标检测",
+              index: "9",
+              logo: "icon-appliction-key",
+              fold: true,
+              noChild: true,
+              text: "目标检测",
+              iconCls: "icon-appliction-key",
+              checked: true,
+              description: null,
+              attributes: {},
+              children: [
+                {
+                  id: "3416",
+                  parentId: null,
+                  obj: null,
+                  abbrp: null,
+                  abbrw: null,
+                  intenames: "1",
+                  nocheck: null,
+                  item: "感染检测",
+                  index: "223",
+                  logo: "icon-appliction-key",
+                  text: "感染检测",
+                  iconCls: "icon-appliction-key",
+                  checked: true,
+                  description: null,
+                  fold: true,
+                  noChild: true,
+                  attributes: {},
+                  children: [
+                    {
+                      id: "34193",
+                      parentId: null,
+                      obj: null,
+                      abbrp: null,
+                      abbrw: null,
+                      intenames: "1",
+                      nocheck: null,
+                      item: "上报卡管理",
+                      index: "223",
+                      logo: "icon-appliction-key",
+                      text: "上报卡管理",
+                      iconCls: "icon-appliction-key",
+                      checked: true,
+                      description: null,
+                      fold: false,
+                      noChild: true,
+                      path: "/home/hosptialobjectdetection",
+                      attributes: {},
+                      children: [],
+                      useChildren: null,
+                      state: "open",
+                      name: "insu_mzjygl",
+                      bck03b: null,
+                      nodes: null,
+                      leaf: true,
+                      validTree: true
+                    },
+                    {
+                      id: "34194",
+                      parentId: null,
+                      obj: null,
+                      abbrp: null,
+                      abbrw: null,
+                      intenames: "1",
+                      nocheck: null,
+                      item: "疑似感染",
+                      index: "223",
+                      logo: "icon-appliction-key",
+                      text: "疑似感染",
+                      iconCls: "icon-appliction-key",
+                      checked: true,
+                      description: null,
+                      fold: false,
+                      noChild: true,
+                      path: "/home/suspectedinfection",
+                      attributes: {},
+                      children: [],
+                      useChildren: null,
+                      state: "open",
+                      name: "insu_mzjygl",
+                      bck03b: null,
+                      nodes: null,
+                      leaf: true,
+                      validTree: true
+                    },
+                    {
+                      id: "34195",
+                      parentId: null,
+                      obj: null,
+                      abbrp: null,
+                      abbrw: null,
+                      intenames: "1",
+                      nocheck: null,
+                      item: "感染病例查询",
+                      index: "223",
+                      logo: "icon-appliction-key",
+                      text: "感染病例查询",
+                      iconCls: "icon-appliction-key",
+                      checked: true,
+                      description: null,
+                      fold: false,
+                      noChild: true,
+                      path: "/home/infectioncaseinquiry",
+                      attributes: {},
+                      children: [],
+                      useChildren: null,
+                      state: "open",
+                      name: "insu_mzjygl",
+                      bck03b: null,
+                      nodes: null,
+                      leaf: true,
+                      validTree: true
+                    },
+                    {
+                      id: "34196",
+                      parentId: null,
+                      obj: null,
+                      abbrp: null,
+                      abbrw: null,
+                      intenames: "1",
+                      nocheck: null,
+                      item: "现患率调查",
+                      index: "223",
+                      logo: "icon-appliction-key",
+                      text: "现患率调查",
+                      iconCls: "icon-appliction-key",
+                      checked: true,
+                      description: null,
+                      fold: false,
+                      noChild: true,
+                      path: "/home/surveycurrentincidence",
+                      attributes: {},
+                      children: [],
+                      useChildren: null,
+                      state: "open",
+                      name: "insu_mzjygl",
+                      bck03b: null,
+                      nodes: null,
+                      leaf: true,
+                      validTree: true
+                    },
+                    {
+                      id: "34196",
+                      parentId: null,
+                      obj: null,
+                      abbrp: null,
+                      abbrw: null,
+                      intenames: "1",
+                      nocheck: null,
+                      item: "现患率调查统计",
+                      index: "223",
+                      logo: "icon-appliction-key",
+                      text: "现患率调查统计",
+                      iconCls: "icon-appliction-key",
+                      checked: true,
+                      description: null,
+                      fold: false,
+                      noChild: true,
+                      path: "/home/surveyincidence",
+                      attributes: {},
+                      children: [],
+                      useChildren: null,
+                      state: "open",
+                      name: "insu_mzjygl",
+                      bck03b: null,
+                      nodes: null,
+                      leaf: true,
+                      validTree: true
+                    },
+                    {
+                      id: "34197",
+                      parentId: null,
+                      obj: null,
+                      abbrp: null,
+                      abbrw: null,
+                      intenames: "1",
+                      nocheck: null,
+                      item: "感染统计",
+                      index: "223",
+                      logo: "icon-appliction-key",
+                      text: "感染统计",
+                      iconCls: "icon-appliction-key",
+                      checked: true,
+                      description: null,
+                      fold: false,
+                      noChild: true,
+                      path: "/home/infectionstatistics",
+                      attributes: {},
+                      children: [],
+                      useChildren: null,
+                      state: "open",
+                      name: "insu_mzjygl",
+                      bck03b: null,
+                      nodes: null,
+                      leaf: true,
+                      validTree: true
+                    },
+                    {
+                      id: "34199",
+                      parentId: null,
+                      obj: null,
+                      abbrp: null,
+                      abbrw: null,
+                      intenames: "1",
+                      nocheck: null,
+                      item: "医院感染漏报率",
+                      index: "223",
+                      logo: "icon-appliction-key",
+                      text: "医院感染漏报率",
+                      iconCls: "icon-appliction-key",
+                      checked: true,
+                      description: null,
+                      fold: false,
+                      noChild: true,
+                      path: "/home/underreportingcases",
+                      attributes: {},
+                      children: [],
+                      useChildren: null,
+                      state: "open",
+                      name: "insu_mzjygl",
+                      bck03b: null,
+                      nodes: null,
+                      leaf: true,
+                      validTree: true
+                    }
+                  ],
+                  useChildren: null,
+                  state: "open",
+                  name: "insu_mzjygl",
+                  bck03b: null,
+                  nodes: null,
+                  leaf: true,
+                  validTree: true
+                },
+                {
+                  id: "341456",
+                  parentId: null,
+                  obj: null,
+                  abbrp: null,
+                  abbrw: null,
+                  intenames: "1",
+                  nocheck: null,
+                  item: "ICU监测",
+                  index: "9",
+                  logo: "icon-appliction-key",
+                  fold: true,
+                  noChild: true,
+                  text: "ICU监测",
+                  iconCls: "icon-appliction-key",
+                  checked: true,
+                  description: null,
+                  attributes: {},
+                  children: [
+                    {
+                      id: "34196535",
+                      parentId: null,
+                      obj: null,
+                      abbrp: null,
+                      abbrw: null,
+                      intenames: "1",
+                      nocheck: null,
+                      item: "ICU日志",
+                      index: "223",
+                      logo: "icon-appliction-key",
+                      text: "ICU日志",
+                      iconCls: "icon-appliction-key",
+                      checked: true,
+                      description: null,
+                      fold: false,
+                      noChild: true,
+                      path: "/home/ICUlog",
+                      attributes: {},
+                      children: [],
+                      useChildren: null,
+                      state: "open",
+                      name: "insu_mzjygl",
+                      bck03b: null,
+                      nodes: null,
+                      leaf: true,
+                      validTree: true
+                    },
+                    {
+                      id: "3419653596",
+                      parentId: null,
+                      obj: null,
+                      abbrp: null,
+                      abbrw: null,
+                      intenames: "1",
+                      nocheck: null,
+                      item: "临床病情等级评定",
+                      index: "223",
+                      logo: "icon-appliction-key",
+                      text: "临床病情等级评定",
+                      iconCls: "icon-appliction-key",
+                      checked: true,
+                      description: null,
+                      fold: false,
+                      noChild: true,
+                      path: "/home/clinicalgradeassessment",
+                      attributes: {},
+                      children: [],
+                      useChildren: null,
+                      state: "open",
+                      name: "insu_mzjygl",
+                      bck03b: null,
+                      nodes: null,
+                      leaf: true,
+                      validTree: true
+                    },
+                    {
+                      id: "341965359w6",
+                      parentId: null,
+                      obj: null,
+                      abbrp: null,
+                      abbrw: null,
+                      intenames: "1",
+                      nocheck: null,
+                      item: "ICU感染统计",
+                      index: "223",
+                      logo: "icon-appliction-key",
+                      text: "ICU感染统计",
+                      iconCls: "icon-appliction-key",
+                      checked: true,
+                      description: null,
+                      fold: false,
+                      noChild: true,
+                      path: "/home/ICUinfectionstatistics",
+                      attributes: {},
+                      children: [],
+                      useChildren: null,
+                      state: "open",
+                      name: "insu_mzjygl",
+                      bck03b: null,
+                      nodes: null,
+                      leaf: true,
+                      validTree: true
+                    }
+                  ]
+                },
+                {
+                  id: "34144",
+                  parentId: null,
+                  obj: null,
+                  abbrp: null,
+                  abbrw: null,
+                  intenames: "1",
+                  nocheck: null,
+                  item: "外科手术感染监测",
+                  index: "3",
+                  path: "/home/surgicalinfectiondetection",
+                  logo: "icon-appliction-key",
+                  fold: false,
+                  noChild: true,
+                  text: "外科手术感染监测",
+                  iconCls: "icon-appliction-key",
+                  checked: true,
+                  description: null,
+                  attributes: {},
+                  children: [],
+                  useChildren: null,
+                  state: "open",
+                  name: "insu_mthz",
+                  bck03b: null,
+                  nodes: null,
+                  leaf: true,
+                  validTree: true
+                },
+                {
+                  id: "3414434",
+                  parentId: null,
+                  obj: null,
+                  abbrp: null,
+                  abbrw: null,
+                  intenames: "1",
+                  nocheck: null,
+                  item: "细菌耐药监测",
+                  index: "3",
+                  path: "/home/bacterialmonitoring",
+                  logo: "icon-appliction-key",
+                  fold: false,
+                  noChild: true,
+                  text: "细菌耐药监测",
+                  iconCls: "icon-appliction-key",
+                  checked: true,
+                  description: null,
+                  attributes: {},
+                  children: [],
+                  useChildren: null,
+                  state: "open",
+                  name: "insu_mthz",
+                  bck03b: null,
+                  nodes: null,
+                  leaf: true,
+                  validTree: true
+                },
+                {
+                  id: "341443e4",
+                  parentId: null,
+                  obj: null,
+                  abbrp: null,
+                  abbrw: null,
+                  intenames: "1",
+                  nocheck: null,
+                  item: "抗菌药物监测",
+                  index: "3",
+                  path: "/home/antimicrobialmonitoring",
+                  logo: "icon-appliction-key",
+                  fold: false,
+                  noChild: true,
+                  text: "抗菌药物监测",
+                  iconCls: "icon-appliction-key",
+                  checked: true,
+                  description: null,
+                  attributes: {},
+                  children: [],
+                  useChildren: null,
+                  state: "open",
+                  name: "insu_mthz",
+                  bck03b: null,
+                  nodes: null,
+                  leaf: true,
+                  validTree: true
+                },
+              ],
+              useChildren: null,
+              state: "open",
+              name: "insu_mzjygl",
+              bck03b: null,
+              nodes: null,
+              leaf: true,
+              validTree: true
+            }
+          ],
+          useChildren: null,
+          state: "open",
+          name: "insu_ywpt",
+          bck03b: null,
+          nodes: null,
+          leaf: false,
+          validTree: true
+        },
+        {
+          id: "3415",
+          parentId: null,
+          obj: null,
+          abbrp: null,
+          abbrw: null,
+          intenames: null,
+          nocheck: null,
+          item: "参数设置",
+          index: "3",
+          path: null,
+          logo: "icon-serverwarn",
+          fold: true,
+          noChild: null,
+          text: "参数设置",
+          iconCls: "icon-serverwarn",
+          checked: true,
+          description: null,
+          attributes: {},
+          children: [
+            {
+              id: "3426",
+              parentId: null,
+              obj: null,
+              abbrp: null,
+              abbrw: null,
+              intenames: "1",
+              nocheck: null,
+              item: "公共参数",
+              index: "1",
+              path: "/home/commonparameter",
+              logo: "icon-appliction-key",
+              fold: false,
+              noChild: true,
+              text: "公共参数",
+              iconCls: "icon-appliction-key",
+              checked: true,
+              description: null,
+              attributes: {},
+              children: [],
+              useChildren: null,
+              state: "open",
+              name: "insu_ggcs",
+              bck03b: null,
+              nodes: null,
+              leaf: true,
+              validTree: true
+            }
+          ],
+          useChildren: null,
+          state: "open",
+          name: "insu_cssz",
+          bck03b: null,
+          nodes: null,
+          leaf: false,
+          validTree: true
+        }
+      ]
     };
   },
   computed: {
@@ -93,7 +681,7 @@ export default {
   },
   watch: {
     userId() {
-      this.menuLoad();
+      // this.menuLoad();
     }
   },
   methods: {
@@ -128,6 +716,7 @@ export default {
       // 三级菜单节点
       if (index === 3) {
         this.activeMenuIndex = list.id;
+        list.fold = !list.fold;
       }
       if (list.children.length > 0) {
         return;
@@ -144,21 +733,21 @@ export default {
       }
     },
     menuLoad() {
-      let url = "SysSchedule/getUserMenu";
-      commonAjaxRequest(
-        {
-          userId: this.userId,
-          loginUserId: this.userId,
-          loginCode: this.loginName,
-          modId: "2363"
-        },
-        url
-      ).then(res => {
-        debugger;
-        this.leftMenuData = res.list;
-        this.leftMenuData.unshift(this.homePage);
-        console.log(res);
-      });
+      // let url = "SysSchedule/getUserMenu";
+      // commonAjaxRequest(
+      //   {
+      //     userId: this.userId,
+      //     loginUserId: this.userId,
+      //     loginCode: this.loginName,
+      //     modId: "2363"
+      //   },
+      //   url
+      // ).then(res => {
+      //   debugger;
+      //   this.leftMenuData = res.list;
+      //   this.leftMenuData.unshift(this.homePage);
+      //   console.log(res);
+      // });
     }
   },
   mounted() {}
@@ -343,7 +932,7 @@ ul.third-level-menu {
   margin-left: -36px;
 }
 ul.third-level-menu li {
-  text-indent: 48px;
+  text-indent: 39px;
 }
 .mybox-leave-active,
 .mybox-enter-active {
@@ -383,5 +972,8 @@ ul.third-level-menu li {
   float: left;
   margin-left: 5px;
   color: #fff;
+}
+ul.fourth-level-menu li {
+  text-indent: 20px !important;
 }
 </style>

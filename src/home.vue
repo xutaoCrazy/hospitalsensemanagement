@@ -14,7 +14,7 @@ import headerComponent from "./components/frameWork/Header";
 import footer from "./components/frameWork/Footer";
 import container from "./components/frameWork/container";
 import { mapState, mapMutations } from "vuex";
-import { sysSchedule, getUserCode } from "@/service/api/InstitutionInterface";
+// import { sysSchedule, getUserCode } from "@/service/api/InstitutionInterface";
 export default {
   name: "App",
   data() {
@@ -47,48 +47,48 @@ export default {
       "insuResourceUrl"
     ]),
     parameterQuery() {
-      sysSchedule() // 获取当前登录人
-        .then(res => {
-          if (res.map) {
-            debugger;
-            let map = res.map;
-            this.mapArr = map;
-            this.trueName(map.trueName); //当前登录人
-            this.systemVer(map.systemVer); //版本号
-            this.loginFilters(map.loginFilters); //判断跳出当前系统
-            this.loginName(map.loginName); //当前登录人编码
-            this.centerurl(map.centerurl); //控制中心url
-            this.bck03(map.bck03); //登录科室
-            this.loginTimes(map.loginTimes); //登陆时间
-            this.loginTimes(map.loginTimes); //登陆时间
-            this.userId(map.userId); //登录人id
-            this.jsessionids(map.jsessionids); //jessionids
-            this.doctorUrl(map.doctorUrl); //医生站地址
-            this.baseHospitalid(map.baseHospitalid); //医生站地址
-            this.employeeId(map.employeeId); //登录人id
-            this.addHospitalEvent(JSON.parse(map.parameterArray)[0].children);
-            this.insuLocalBaseUrl(map.insuLocalBaseUrl); //
-            // this.$router.push("/home"); //回到根路由
-            let ip = /\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/;
-            debugger;
-            let adress = ip.exec(map.centerurl);
-            if (window.location.hostname === adress[0]) {
-              this.insuBaseUrl(map.insuBaseUrl); //
-              this.insuResourceUrl(map.insuResourceUrl); //
-              this.$router.push("/home"); //回到根路由
-            } else {
-              this.insuBaseUrl(window.location.origin + "/insuranceweb/cloud/"); //
-              this.insuResourceUrl(window.location.origin + "/insuranceweb/"); //
-            }
-          }
-        })
-        .catch(res => {
-          this.$confirm(res, "提示", {
-            confirmButtonText: "确定",
-            type: "error",
-            showCancelButton: false
-          });
-        });
+      // sysSchedule() // 获取当前登录人
+      //   .then(res => {
+      //     if (res.map) {
+      //       debugger;
+      //       let map = res.map;
+      //       this.mapArr = map;
+      //       this.trueName(map.trueName); //当前登录人
+      //       this.systemVer(map.systemVer); //版本号
+      //       this.loginFilters(map.loginFilters); //判断跳出当前系统
+      //       this.loginName(map.loginName); //当前登录人编码
+      //       this.centerurl(map.centerurl); //控制中心url
+      //       this.bck03(map.bck03); //登录科室
+      //       this.loginTimes(map.loginTimes); //登陆时间
+      //       this.loginTimes(map.loginTimes); //登陆时间
+      //       this.userId(map.userId); //登录人id
+      //       this.jsessionids(map.jsessionids); //jessionids
+      //       this.doctorUrl(map.doctorUrl); //医生站地址
+      //       this.baseHospitalid(map.baseHospitalid); //医生站地址
+      //       this.employeeId(map.employeeId); //登录人id
+      //       this.addHospitalEvent(JSON.parse(map.parameterArray)[0].children);
+      //       this.insuLocalBaseUrl(map.insuLocalBaseUrl); //
+      //       // this.$router.push("/home"); //回到根路由
+      //       let ip = /\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/;
+      //       debugger;
+      //       let adress = ip.exec(map.centerurl);
+      //       if (window.location.hostname === adress[0]) {
+      //         this.insuBaseUrl(map.insuBaseUrl); //
+      //         this.insuResourceUrl(map.insuResourceUrl); //
+      //         this.$router.push("/home"); //回到根路由
+      //       } else {
+      //         this.insuBaseUrl(window.location.origin + "/insuranceweb/cloud/"); //
+      //         this.insuResourceUrl(window.location.origin + "/insuranceweb/"); //
+      //       }
+      //     }
+      //   })
+      //   .catch(res => {
+      //     this.$confirm(res, "提示", {
+      //       confirmButtonText: "确定",
+      //       type: "error",
+      //       showCancelButton: false
+      //     });
+      //   });
     },
     getHospitalList(d) {
       debugger;
@@ -107,45 +107,45 @@ export default {
       this.parameterArray(this.hospitalList); //医院
     },
     addHospitalEvent(list) {
-      this.getHospitalList(list);
+      // this.getHospitalList(list);
     }
   },
   mounted() {
     this.parameterQuery();
     window.onfocus = () => {
-      getUserCode("getUserCode", {
-        code: this.mapArr.loginName
-      })
-        .then(data => {
-          if (data) {
-            if (data.result == "SUCCESS") {
-              if (this.mapArr.loginFilter != data.loginFilter) {
-                this.$confirm("同一浏览器不能同时登录多个帐号！", "提示", {
-                  confirmButtonText: "确定",
-                  type: "error",
-                  showCancelButton: false,
-                  showClose: false
-                }).then(() => {
-                  window.parent.location.href = this.mapArr.centerurl; //跳转登录页面
-                });
-              }
-            } else {
-              this.$confirm(data.loginFilter, "提示", {
-                confirmButtonText: "确定",
-                type: "error",
-                showCancelButton: false,
-                showClose: false
-              }).then(() => {
-                window.parent.location.href = this.mapArr.centerurl; //跳转登录页面
-              });
-            }
-          } else {
-            window.parent.location.href = this.mapArr.centerurl; //跳转登录页面
-          }
-        })
-        .catch(data => {
-          // window.parent.location.href = this.mapArr.centerurl; //跳转登录页面
-        });
+      // getUserCode("getUserCode", {
+      //   code: this.mapArr.loginName
+      // })
+      //   .then(data => {
+      //     if (data) {
+      //       if (data.result == "SUCCESS") {
+      //         if (this.mapArr.loginFilter != data.loginFilter) {
+      //           this.$confirm("同一浏览器不能同时登录多个帐号！", "提示", {
+      //             confirmButtonText: "确定",
+      //             type: "error",
+      //             showCancelButton: false,
+      //             showClose: false
+      //           }).then(() => {
+      //             window.parent.location.href = this.mapArr.centerurl; //跳转登录页面
+      //           });
+      //         }
+      //       } else {
+      //         this.$confirm(data.loginFilter, "提示", {
+      //           confirmButtonText: "确定",
+      //           type: "error",
+      //           showCancelButton: false,
+      //           showClose: false
+      //         }).then(() => {
+      //           window.parent.location.href = this.mapArr.centerurl; //跳转登录页面
+      //         });
+      //       }
+      //     } else {
+      //       window.parent.location.href = this.mapArr.centerurl; //跳转登录页面
+      //     }
+      //   })
+      //   .catch(data => {
+      //     // window.parent.location.href = this.mapArr.centerurl; //跳转登录页面
+      //   });
     };
   },
 

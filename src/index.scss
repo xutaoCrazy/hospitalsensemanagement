@@ -387,3 +387,58 @@ body {
     height: calc(100% - 55px);
   }
 }
+
+//  =========================================================
+.el-tabs__content {
+  height: calc(100% - 50px) !important;
+
+  .el-tab-pane {
+    height: 100%;
+    padding-bottom: 5px;
+  }
+}
+
+.repotcard {
+  .r-col_input {
+    .el-input__inner {
+      background: #f9f9f9;
+      border: none;
+    }
+
+    .el-textarea__inner {
+      background: #f9f9f9;
+      border: none;
+    }
+  }
+
+  .r-col-label label {
+    margin-bottom: 0px;
+  }
+
+  .el-checkbox {
+    color: #000000 !important;
+    margin-right: 20px !important;
+    float: left !important;
+  }
+}
+
+.el-width {
+  .el-form-item__content {
+    margin-left: 0px !important;
+  }
+
+}
+
+.el-checkbox {
+  color: #000000;
+}
+
+.doctot-cation {
+  .el-form-item {
+    margin-bottom: 0px !important;
+  }
+}
+
+.el-dialog__body {
+  color: #000000;
+}

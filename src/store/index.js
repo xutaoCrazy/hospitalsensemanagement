@@ -1,9 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import moment from 'moment'
-import {
-  insurance
-} from "@/yibao/insuranceconfig";
 Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
@@ -86,18 +83,7 @@ export default new Vuex.Store({
     employeeId(state, name) { //登录人id
       state.employeeId = name
     },
-    insuBaseUrl(state, name) { //
-      state.insuBaseUrl = name
-      insurance.config.baseInfo.insCommonParams.hisBaseUrl = name
-    },
-    insuLocalBaseUrl(state, name) { //
-      state.insuLocalBaseUrl = name
-      insurance.config.baseInfo.insCommonParams.insuBaseUrl = name
-    },
-    insuResourceUrl(state, name) { //
-      state.insuResourceUrl = name
-      insurance.config.baseInfo.insCommonParams.hisResourceUrl = name
-    },
+
     loginTimes(state, name) { //登陆时间
       state.loginTime = moment(parseFloat(name)).format(
         "YYYY-MM-DD HH:mm:ss"

@@ -60,8 +60,7 @@ export default {
     }
   },
   watch: {
-    innerVisible(newname, oldname) {
-    }
+    innerVisible(newname, oldname) {}
   },
   methods: {
     add() {

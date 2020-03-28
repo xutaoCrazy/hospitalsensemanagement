@@ -1,25 +1,26 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // Vue.prototype.Global = Global
-import patientmanagment from '@/components/homePage/patientmanagment' // 病人管理
-import patientcharge from '@/components/homePage/patientcharge' // 门诊收费退费
+import hospitaloutbreakwarning from '@/components/homePage/hospitaloutbreakwarning' // 爆发预警
+import hosptialobjectdetection from '@/components/homePage/hosptialobjectdetection' // 报告卡管理
+import suspectedinfection from '@/components/homePage/suspectedinfection' // 疑似感染
+import infectioncaseinquiry from '@/components/homePage/infectioncaseinquiry' // 感染病例查询
+import surveycurrentincidence from '@/components/homePage/surveycurrentincidence' // 现患率调查
+import surveyincidence from '@/components/homePage/surveyincidence' // 现患率调查统计
+import infectionstatistics from '@/components/homePage/infectionstatistics' // 感染统计
+import underreportingcases from '@/components/homePage/underreportingcases' // 医院感染漏报率
+import ICUlog from '@/components/homePage/ICUlog' // ICU日志
+import clinicalgradeassessment from '@/components/homePage/clinicalgradeassessment' // 临床病情等级评定
+import ICUinfectionstatistics from '@/components/homePage/ICUinfectionstatistics' // ICU感染统计
+import surgicalinfectiondetection from '@/components/homePage/surgicalinfectiondetection' // 外科手术感染监测
+import bacterialmonitoring from '@/components/homePage/bacterialmonitoring' // 耐药菌监测
+import antimicrobialmonitoring from '@/components/homePage/antimicrobialmonitoring' // 抗菌药物监测
+import reportcard from '@/components/reportcard/index' // 院感检测传染病报告卡管理
+import patientinformation from '@/components/patientinformation/index' // 医嘱信息
+
 import Global from '../components/frameWork/Global'
 import login from '../components/login/login'
-import patientinformation from '@/components/homepage/patientinformation' // 机构信息
-import patientItems from '@/components/homepage/patientItems' // 保险收费项目
-import patientchangeItems from '@/components/homepage/patientchangeItems' // 保险收费项目对应
-import patientbasicdictionary from '@/components/homePage/patientbasicdictionary' // 基础字典
-import patientdiseasecatalogue from '@/components/homePage/patientdiseasecatalogue' // 疾病目录
-import patientInstitutions from '@/components/homePage/patientInstitutions' // 保险机构
-import cataloguequery from '@/components/homePage/cataloguequery' // 目录查询
-import pharmaceuticalcatalogue from '@/components/catalogTpl/pharmaceuticalcatalogue' // 药品目录
-import directorypairing from '@/components/homePage/directorypairing' // 目录对码
-import transactionmanagement from '@/components/homePage/transactionmanagement' // 门诊交易管理
-import outpatientspecialpatients from '@/components/homePage/outpatientspecialpatients' // 门诊特殊病人
-import Inpatientmanagement from '@/components/homePage/Inpatientmanagement' // 住院患者管理
-import countercode from '@/components/homePage/countercode' // 自动对码
-import directorypage from '@/components/directory/index' // 目录对码药品目录
-import commonparameter from '@/components/homePage/commonparameter' // 公共参数
+
 import main from '@/components/homePage/main' // 首页
 import home from '@/home' // 保险机构
 Vue.prototype.Global = Global
@@ -30,80 +31,80 @@ window.vueRouter = new Router({
       name: 'home',
       component: home,
       children: [{
-          path: 'patientmanagment', // 病人管理
-          name: 'patientmanagment',
-          component: patientmanagment
+          path: 'hospitaloutbreakwarning', // 爆发预警
+          name: 'hospitaloutbreakwarning',
+          component: hospitaloutbreakwarning
         },
         {
-          path: 'patientcharge', // 门诊收费退费
-          name: 'patientcharge',
-          component: patientcharge
+          path: 'hosptialobjectdetection', // 报告卡管理
+          name: 'hosptialobjectdetection',
+          component: hosptialobjectdetection
         },
         {
-          path: 'patientinformation', // 机构信息
-          name: 'patientinformation',
-          component: patientinformation
+          path: 'suspectedinfection', // 疑似感染
+          name: 'suspectedinfection',
+          component: suspectedinfection
         },
         {
-          path: 'patientItems', // 保险收费项目
-          name: 'patientItems',
-          component: patientItems
+          path: 'infectioncaseinquiry', // 感染病例查询
+          name: 'infectioncaseinquiry',
+          component: infectioncaseinquiry
         },
         {
-          path: 'patientchangeItems', // 保险收费项目对应
-          name: 'patientchangeItems',
-          component: patientchangeItems
+          path: 'surveycurrentincidence', // 现患率调查
+          name: 'surveycurrentincidence',
+          component: surveycurrentincidence
         },
         {
-          path: 'patientbasicdictionary', // 基础字典
-          name: 'patientbasicdictionary',
-          component: patientbasicdictionary
+          path: 'infectionstatistics', // 感染统计
+          name: 'infectionstatistics',
+          component: infectionstatistics
         },
         {
-          path: 'patientdiseasecatalogue', // 疾病目录
-          name: 'patientdiseasecatalogue',
-          component: patientdiseasecatalogue
+          path: 'underreportingcases', // 医院感染漏报率
+          name: 'underreportingcases',
+          component: underreportingcases
         },
         {
-          path: 'patientInstitutions', // 保险机构
-          name: 'patientInstitutions',
-          component: patientInstitutions
+          path: 'ICUlog', // ICU日志
+          name: 'ICUlog',
+          component: ICUlog
         },
         {
-          path: 'cataloguequery', // 目录查询
-          name: 'cataloguequery',
-          component: cataloguequery
+          path: 'clinicalgradeassessment', // 临床病情等级评定
+          name: 'clinicalgradeassessment',
+          component: clinicalgradeassessment
         },
         {
-          path: 'directorypairing', // 目录对码
-          name: 'directorypairing',
-          component: directorypairing
+          path: 'ICUinfectionstatistics', // ICU感染统计
+          name: 'ICUinfectionstatistics',
+          component: ICUinfectionstatistics
         },
         {
-          path: 'countercode', // 自动对码
-          name: 'countercode',
-          component: countercode
+          path: 'surgicalinfectiondetection', // 外科手术感染监测
+          name: 'surgicalinfectiondetection',
+          component: surgicalinfectiondetection
         },
         {
-          path: 'transactionmanagement', //   门诊交易管理
-          name: 'transactionmanagement',
-          component: transactionmanagement
+          path: 'surveyincidence', // 现患病率调查统计
+          name: 'surveyincidence',
+          component: surveyincidence
         },
         {
-          path: 'outpatientspecialpatients', //   门诊特殊病人
-          name: 'outpatientspecialpatients',
-          component: outpatientspecialpatients
+          path: 'bacterialmonitoring', // 细菌耐药监测
+          name: 'bacterialmonitoring',
+          component: bacterialmonitoring
         },
         {
-          path: 'Inpatientmanagement', //   住院患者管理
-          name: 'Inpatientmanagement',
-          component: Inpatientmanagement
+          path: 'antimicrobialmonitoring', // 抗菌药物监测
+          name: 'antimicrobialmonitoring',
+          component: antimicrobialmonitoring
         },
-        {
-          path: 'commonparameter', //   公共参数
-          name: 'commonparameter',
-          component: commonparameter
-        },
+        //   {
+        //     path: 'commonparameter', //   公共参数
+        //     name: 'commonparameter',
+        //     component: commonparameter
+        //   },
         {
           path: '/', //   首页
           name: 'main',
@@ -112,90 +113,22 @@ window.vueRouter = new Router({
       ]
     },
     {
-      path: '/patientmanagment', // 病人管理
-      name: 'patientmanagment',
-      component: patientmanagment
+      path: '/reportcard', // 院感管理传染病报告卡管理
+      name: 'reportcard',
+      component: reportcard
     },
     {
-      path: '/patientcharge', // 门诊收费退费
-      name: 'patientcharge',
-      component: patientcharge
-    },
-    {
-      path: '/patientinformation', // 机构信息
+      path: '/patientinformation', // 患者信息
       name: 'patientinformation',
       component: patientinformation
     },
+
+    // {
+    //   path: 'commonparameter', //   公共参数
+    //   name: 'commonparameter',
+    //   component: commonparameter
+    // },
     {
-      path: '/patientItems', // 保险收费项目
-      name: 'patientItems',
-      component: patientItems
-    },
-    {
-      path: '/patientchangeItems', // 保险收费项目对应
-      name: 'patientchangeItems',
-      component: patientchangeItems
-    },
-    {
-      path: '/patientbasicdictionary', // 基础字典
-      name: 'patientbasicdictionary',
-      component: patientbasicdictionary
-    },
-    {
-      path: '/patientdiseasecatalogue', // 疾病目录
-      name: 'patientdiseasecatalogue',
-      component: patientdiseasecatalogue
-    },
-    {
-      path: '/cataloguequery', // 目录查询
-      name: 'cataloguequery',
-      component: cataloguequery
-    },
-    {
-      path: '/pharmaceuticalcatalogue', // 药品目录
-      name: 'pharmaceuticalcatalogue',
-      component: pharmaceuticalcatalogue
-    },
-    {
-      path: '/patientInstitutions', // 保险机构
-      name: 'patientInstitutions',
-      component: patientInstitutions
-    },
-    {
-      path: '/directorypairing', // 目录对码
-      name: 'directorypairing',
-      component: directorypairing
-    },
-    {
-      path: '/directorypage', // 目录对码
-      name: 'directorypage',
-      component: directorypage
-    },
-    {
-      path: '/countercode', // 自动对码
-      name: 'countercode',
-      component: countercode
-    },
-    {
-      path: '/transactionmanagement', // 门诊交易管理
-      name: 'transactionmanagement',
-      component: transactionmanagement
-    },
-    {
-      path: 'outpatientspecialpatients', //   门诊特殊病人
-      name: 'outpatientspecialpatients',
-      component: outpatientspecialpatients
-    },
-    {
-      path: 'Inpatientmanagement', //   住院患者管理
-      name: 'Inpatientmanagement',
-      component: Inpatientmanagement
-    },
-    {
-      path: 'commonparameter', //   公共参数
-      name: 'commonparameter',
-      component: commonparameter
-    }, {
       path: '/login',
       name: 'login',
       component: login
