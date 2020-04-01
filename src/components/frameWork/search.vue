@@ -24,7 +24,8 @@
           :value="item.id"
         ></el-option>
       </el-select>
-      <span class="logOut" @click="logOut">
+      <!-- <span class="logOut" @click="logOut"> -->
+      <span class="logOut">
         <i class="glyphicon glyphicon-off logInforIcon"></i> 退出
       </span>
     </div>

@@ -109,7 +109,7 @@ export default {
 </script>
 <style scoped>
 .center-content {
-  height: 43px;
+  height: 37px;
   padding-left: 205px;
 }
 .content-header {
@@ -133,9 +133,9 @@ export default {
 }
 .content-tabs-nav {
   border-bottom: solid 2px #0369aa;
-  height: 42px;
+  height: 37px;
   background: #f9f9f9;
-  line-height: 40px;
+  line-height: 35px;
 }
 .content-tabs .roll-left {
   left: 0;
@@ -144,7 +144,7 @@ export default {
 .content-tabs .roll-nav {
   position: absolute;
   width: 40px;
-  height: 40px;
+  height: 35px;
   text-align: center;
   color: #999;
   z-index: 2;
@@ -153,13 +153,13 @@ export default {
 .content-tabs button {
   background: #f9f9f9;
   border: 0;
-  height: 40px;
+  height: 35px;
   width: 40px;
   outline: 0;
 }
 nav.page-tabs {
   margin-left: 24px;
-  height: 40px;
+  height: 35px;
   overflow: hidden;
 }
 nav.page-tabs .page-tabs-content {

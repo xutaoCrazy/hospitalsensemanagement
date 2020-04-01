@@ -11,11 +11,11 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: { //配置跨域解决
-      '/insuranceweb': {
+      '/fixedassetweb': {
         target: 'http://192.168.1.189:8080',
         changeOrigin: true,
         pathRewrite: {
-          '^/insuranceweb': '/insuranceweb'
+          '^/fixedassetweb': '/fixedassetweb'
         }
       },
     },
@@ -58,7 +58,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/insuranceweb/',
+    assetsPublicPath: '/fixedassetweb/',
 
     /**
      * Source Maps

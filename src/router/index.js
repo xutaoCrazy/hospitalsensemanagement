@@ -15,8 +15,14 @@ import ICUinfectionstatistics from '@/components/homePage/ICUinfectionstatistics
 import surgicalinfectiondetection from '@/components/homePage/surgicalinfectiondetection' // 外科手术感染监测
 import bacterialmonitoring from '@/components/homePage/bacterialmonitoring' // 耐药菌监测
 import antimicrobialmonitoring from '@/components/homePage/antimicrobialmonitoring' // 抗菌药物监测
+import environmentalhygienemonitoring from '@/components/homePage/environmentalhygienemonitoring' // 环境卫生学监测
+import monitoringstatistics from '@/components/homePage/monitoringstatistics' // 消毒灭菌监测统计
+import exposureregistration from '@/components/homePage/exposureregistration' // 职业暴露登记
+import exposurestatistics from '@/components/homePage/exposurestatistics' // 职业暴露统计
 import reportcard from '@/components/reportcard/index' // 院感检测传染病报告卡管理
 import patientinformation from '@/components/patientinformation/index' // 医嘱信息
+import exposureeport from "@/components/exposureeport/index"; //医务人员职务暴露登记卡
+
 
 import Global from '../components/frameWork/Global'
 import login from '../components/login/login'
@@ -100,6 +106,26 @@ window.vueRouter = new Router({
           name: 'antimicrobialmonitoring',
           component: antimicrobialmonitoring
         },
+        {
+          path: 'environmentalhygienemonitoring', // 环境卫生学监测
+          name: 'environmentalhygienemonitoring',
+          component: environmentalhygienemonitoring
+        },
+        {
+          path: 'monitoringstatistics', // 消毒灭菌监测统计
+          name: 'monitoringstatistics',
+          component: monitoringstatistics
+        },
+        {
+          path: 'exposureregistration', // 职业暴露登记
+          name: 'exposureregistration',
+          component: exposureregistration
+        },
+        {
+          path: 'exposurestatistics', // 职业暴露统计
+          name: 'exposurestatistics',
+          component: exposurestatistics
+        },
         //   {
         //     path: 'commonparameter', //   公共参数
         //     name: 'commonparameter',
@@ -121,6 +147,11 @@ window.vueRouter = new Router({
       path: '/patientinformation', // 患者信息
       name: 'patientinformation',
       component: patientinformation
+    },
+    {
+      path: '/exposureeport', // 医务人员登记暴露卡
+      name: 'exposureeport',
+      component: exposureeport
     },
 
     // {
